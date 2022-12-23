@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box
+}
+
+body {
+    
+    display: flex;
+    background-color: bisque;
+}
+button{
+    width: 300px;
+    height: 30px;
+    color: black;
+    font-family: 'Press Start 2P', cursive;
+    background-color: transparent;
+    margin: 10px  auto;
+    border-radius: 10px;
+    border: none;
+}
+button:hover{
+    animation: blinker 5s linear infinite;
+}
+@keyframes blinker {  
+    75% { opacity: 0.90; }
+    50% { opacity: 0.60; }
+    25% { opacity: 0.30; }
+  }
+
+.principal{
+    text-align: center;
+    font-size: 30px;
+    margin: 10px auto;
+    font-family: 'Press Start 2P', cursive; 
+    border: 3px solid black; 
+    padding: 5px 15px;   
+    border-radius: 10px;
+    background-color: burlywood;
+    color: rgb(53, 14, 14);
+}
+
+
+.nav{
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+}
+
+.memory-game {
+    height: 84%;
+    width: 50%;
+    margin: auto;
+    display: block;
+    flex-wrap: wrap;
+    position: fixed;
+    border: 4px solid rgb(53, 14, 14);
+    margin: 7% 25%;
+    padding: 5px 0px 0px 5px;
+    background-color: burlywood;
+}
+
+.card {
+    height: calc( 33.333% - 5px);
+    width: calc( 25% - 5px);
+    margin: auto;
+    position: relative;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    cursor: pointer;
+    transform: scale(1);
+    transform-style: preserve-3d; /* adiciona perspectiva 3d, para que o elemento nao fique achatada no plano */
+    transition: transform .9s; /* adiciona efeito de movimento ao flip do card */
+    display:inline-flex ;
+}
+
+.card:active{
+    transform: scale(0.97);
+    transition: transform .2s;
+}
+
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  padding: auto;
+  position: absolute;
+  border-radius: 5px;
+  background: blanchedalmond;
+  border: 2px solid black;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 23px;
+  text-align: center; 
+  backface-visibility: hidden; /* todo elemento tem uma frente e um verso (ao contrario, como um espelho.) essa propriedade retira o verso */
+}
+#font{
+    padding: 32% 0px 0px 0px;
+}
+
+.card-front {
+    transform: rotateY(180deg); /* antes, o verso aparecia transparente, pois ambas as imagens tem position absolute, ao girar no eixo Y, elas ficaram com os versos virados */
+}
+
+/* flip card animation */
+
+.card.flip {
+    transform: rotateY(180deg);
+}
