@@ -20,8 +20,6 @@ function flipCard() {
     checkForMatch();
 }
 
-
-
 //função que checa se as cartas são iguais
 function checkForMatch() {
     if(firstCard.dataset.card === secondCard.dataset.card) {
@@ -61,15 +59,12 @@ function resetBoard() {
 //função que embaralha as cartas
 (function shuffle() {
     cards.forEach((card) => {
-        let ramdomPosition = Math.floor(Math.random() * 12);
-        card.style.order = ramdomPosition;
+        let randomPosition = Math.floor(Math.random() * 12);
+        card.style.order = randomPosition;
     })
 })();
 
 //adiciona evento de clique na carta
 cards.forEach((card) => {
     card.addEventListener('click', flipCard)
-});
-reset.forEach((reset) => {
-    reset.addEventListener('click', )
 });
